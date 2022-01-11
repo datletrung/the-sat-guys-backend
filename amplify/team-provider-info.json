@@ -1,0 +1,23 @@
+{
+  "thesatguys": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thesatguys-thesatguys-92348-authRole",
+      "UnauthRoleArn": "arn:aws:iam::926771674865:role/amplify-thesatguys-thesatguys-92348-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::926771674865:role/amplify-thesatguys-thesatguys-92348-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+      "UnauthRoleName": "amplify-thesatguys-thesatguys-92348-unauthRole",
+      "StackName": "amplify-thesatguys-thesatguys-92348",
+      "StackId": "arn:aws:cloudformation:us-east-2:926771674865:stack/amplify-thesatguys-thesatguys-92348/b826a070-72e1-11ec-8681-06cdb3e0640a",
+      "AmplifyAppId": "d2twihhnpuigvb"
+    },
+    "categories": {
+      "function": {
+        "ping": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/ping-334d35704b564c70776a-build.zip"
+        }
+      }
+    }
+  }
+}

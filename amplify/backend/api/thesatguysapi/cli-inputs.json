@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/ping": {
+      "name": "/ping",
+      "lambdaFunction": "ping",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
