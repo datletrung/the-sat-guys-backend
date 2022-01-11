@@ -19,19 +19,19 @@
         },
         "examFetchSection": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/examFetchSection-772b50464c5232364942-build.zip"
+          "s3Key": "amplify-builds/examFetchSection-365837324c7057485274-build.zip"
         },
         "donateFetchTopic": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/donateFetchTopic-6333306c5777656b775a-build.zip"
+          "s3Key": "amplify-builds/donateFetchTopic-4d6f46555a6441493768-build.zip"
         },
         "donate": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/donate-38367844684a635a3246-build.zip"
+          "s3Key": "amplify-builds/donate-334f4f797a7978344c4b-build.zip"
         },
         "examFetchQuestion": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/examFetchQuestion-2b3435314853686c4c77-build.zip"
+          "s3Key": "amplify-builds/examFetchQuestion-6f767067304936317233-build.zip"
         }
       }
     }

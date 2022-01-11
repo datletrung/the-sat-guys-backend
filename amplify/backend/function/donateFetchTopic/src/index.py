@@ -21,11 +21,9 @@ def get_secret():
         raise e
     
     secret = json.loads(response['SecretString'])
-    return [secret["db_host"], secret["db_usr"], secret["db_pwd"], secret["db_name"], secret["secret_key"]]
+    return [secret["db_host"], secret["db_usr"], secret["db_pwd"], secret["db_name"]]
 
-db_host, db_usr, db_pwd, db_name, _ = get_secret()
-
-def connect():
+def connect(db_host, db_usr, db_pwd, db_name):
     try:
         conn = pymysql.connect(host=db_host,user=db_usr,
                                passwd=db_pwd,db=db_name,
@@ -37,6 +35,7 @@ def connect():
 
 #---------------------------BEGIN MAIN---------------------------
 def main(event):
+    db_host, db_usr, db_pwd, db_name = get_secret()
     parser = json.loads(event["body"])
     #parser = event["body"]
     try:
@@ -45,7 +44,7 @@ def main(event):
         return False, "Invalid request! (1010)"
 
     if action == "fetchTopic":
-        status, conn = connect()
+        status, conn = connect(db_host, db_usr, db_pwd, db_name)
         if status:
             with conn.cursor() as cursor:
                 query = "SELECT DISTINCT `subtopic`, `section` FROM `topic`"

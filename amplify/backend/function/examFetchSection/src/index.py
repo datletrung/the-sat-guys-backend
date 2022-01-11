@@ -39,9 +39,7 @@ def get_secret():
     secret = json.loads(response['SecretString'])
     return [secret["db_host"], secret["db_usr"], secret["db_pwd"], secret["db_name"]]
 
-db_host, db_usr, db_pwd, db_name = get_secret()
-
-def connect():
+def connect(db_host, db_usr, db_pwd, db_name):
     try:
         conn = pymysql.connect(host=db_host,user=db_usr,
                                passwd=db_pwd,db=db_name,
@@ -54,6 +52,7 @@ def connect():
 
 #---------------------------BEGIN MAIN---------------------------
 def main(event):
+    db_host, db_usr, db_pwd, db_name = get_secret()
     status = None
     data = None
 
@@ -66,7 +65,7 @@ def main(event):
 
     if action == "fetchSection":
         query = "SELECT `section` FROM `exam` WHERE `exam_id`=%s"
-        status, conn = connect()
+        status, conn = connect(db_host, db_usr, db_pwd, db_name)
         if status:
             with conn.cursor() as cursor:
                 cursor.execute(query, [exam_id])
