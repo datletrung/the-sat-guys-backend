@@ -1,0 +1,411 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 0px;
+}
+
+td {
+	padding: 3px;
+}
+
+b {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.dropdown-container {
+	position: relative;
+	border-radius: 8px;
+	border: 2px solid green;
+}
+
+.dropdown-btn-container {
+	position: absolute;
+	top: -1.6rem;
+	background: #fff;
+	right: 20px;
+	line-height: 1.2rem;
+}
+
+.dropdown {
+	border-width: 0px;
+	background: #fff;
+}
+
+.partcontainer {
+	display: flex;
+	margin-left: 10px;
+	align-items: center;
+}
+
+.subcontainer {
+	margin: 2px;
+}
+
+.topic-container{
+	display: none;
+	margin-bottom: 25px;
+	padding: 5px;
+	border: 2px solid green;
+	border-radius: 5px;
+}
+
+.num-topic-container {
+	display: none;
+}
+
+.part {
+	font-size: 18px;
+	margin: 10px;
+	text-decoration: underline;
+}
+
+.topic {
+	margin: 20px;
+}
+
+.diff-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.diff-number {
+	width: 100%;
+	text-align: center;
+}
+
+.diff-label {
+    min-width: 60px;
+}
+
+input.num-ques {
+	width: 20%;
+	box-sizing: border-box;
+	border: 2px solid #04aa6d;	/* Green background */
+	border-radius: 4px;
+	background-color: white;
+	padding: 5px 5px 5px 5px;
+	transition: width 0.4s ease-in-out;
+}
+
+input.num-ques:focus {
+	width: 50%;
+}
+
+input.input_topic::-webkit-outer-spin-button,
+input.input_topic::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input.input_topic {
+	text-align: center;
+	width: 40px;
+	-moz-appearance: textfield;
+	border: none;
+	border-bottom: 1px solid green;
+}
+
+input.input_topic:disabled {
+	border-bottom: 0;
+	background-color: white !important;
+	color: black !important;
+}
+
+.total {
+	display: flex;
+}
+
+.btn {
+	width: 100%;
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn-random {
+	width: 100px;
+	padding: 5px 8px;
+	float: right;
+	margin-left: auto;
+}
+
+.btn:hover {
+	background-color: #3a8c3d; /* Green */
+}
+
+.btn:disabled {
+	background-color: #d3d3d3; /* Grey */
+}
+
+p_green {
+	color: green;
+	font-weight: bold;
+}
+
+p_red {
+	color: red;
+	font-weight: bold;
+}
+
+.alert {
+	z-index: 2;
+	width: 80%;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	position: fixed;
+	text-align: center;
+	padding: 20px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: #f5f5f5;
+	border: 1px solid #73AD21;
+}
+
+.main-body-blurred{
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+	pointer-events: none;
+}
+
+.main-body{
+}
+
+/*------------------------------*/
+.mini-loader {
+  display: none;
+	margin: 10px;
+	border: 3px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 3px solid #04aa6d;
+	width: 12px;
+	height: 12px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+}
+
+.loader {
+    z-index: 1;
+    position: fixed;
+    display: none;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid #04aa6d;
+    width: 45px;
+    height: 45px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+
+/* Safari */
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+/*--------------------------*/
+.slidecontainer {
+	width: 60%; /* Width of the outside container */
+	flex-grow: 0.99;
+}
+
+/* The slider itself */
+.slider {
+	-webkit-appearance: none; /* Override default CSS styles */
+	appearance: none;
+	width: 100%; /* Full-width */
+	height: 25px; /* Specified height */
+	background: #d3d3d3; /* Grey background */
+	outline: none; /* Remove outline */
+	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+	transition: opacity 0.2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+	opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none; /* Override default look */
+	appearance: none;
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: #04aa6d; /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: #04aa6d; /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
+/*--------------------------*/
+/* The container */
+.checkbox-content {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-content input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-content:hover input ~ .checkbox-checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-content input:checked ~ .checkbox-checkmark {
+  background-color: #04aa6d;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-content input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-content .checkbox-checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*---------------radio button----------------*/
+/* The container */
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .radio-checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .radio-checkmark {
+  background-color: #04aa6d;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .radio-checkmark:after {
+ 	top: 7px;
+	left: 7px;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: white;
+}
+
+
+@media (max-width: 700px){
+	.diff-container{
+		flex-direction: column;
+	}
+}

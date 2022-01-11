@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Report</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	<div class="alert" style="display:none;">
+		<div id="msg"></div>
+		<br><hr>
+		<button class="btn" id="ok-btn" onclick="this.parentElement.style.display='none';">OK</button>
+	</div>
+	<div class="loader"></div>
+	<div id="main-body" class="main-body">
+		<header id="header"></header>
+		<div class="container">
+			<h2 style="text-align:center">Send us a message</h2>
+			<div class="center-div">
+				<input id="real-name" placeholder="Name" autocomplete="off" required>
+				<input id="email" placeholder="Email" autocomplete="off" required>
+				<input id="title" placeholder="Title" maxlength="100" autocomplete="off" required>
+				<textarea id="message" placeholder="Message" maxlength="1000" autocomplete="off" required></textarea>
+				<button class="btn" id="submit-report-btn">Submit</button>
+			</div>
+		</div>
+	</div>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="report.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#header").load("../assets/header.html");
+		});
+	</script>
+	<script src="report.js"></script>
+</body>
+</html>

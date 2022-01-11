@@ -1,0 +1,321 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Donate Question</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	
+	<div class="alert" style="display:none;">
+		<div id="msg"></div>
+		<br><hr>
+		<button class="btn" id="ok-btn" onclick="this.parentElement.style.display='none';">OK</button>
+	</div>
+	<div class="loader"></div>
+
+	<div class="main-body" id="main-body">
+		<header id="header"></header>
+		<div>
+			<div>
+				<div>
+					<h2 style="text-align: center;">Problem Topic</h2>
+					<div class="custom-select">
+						<select id="problem-topic">
+							<option value="0"><p>Select topic</p></option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h2 style="text-align: center;">Difficulty</h2>
+				<div class="custom-select">
+					<select id="difficulty">
+						<option value="0"><p>Select difficulty level</p></option>
+						<option value="1"><p>Easy</p></option>
+						<option value="2"><p>Normal</p></option>
+						<option value="3"><p>Hard</p></option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<h2 style="text-align: center;">Question Type</h2>
+				<div class="custom-select">
+					<select id="question-type">
+						<option value="0"><p>Select question type</p></option>
+						<option value="1" disabled><p>Reading (Unavailable)</p></option>
+						<option value="2" disabled><p>Writing (Unavailable)</p></option>
+						<option value="3"><p>Math with Calculator</p></option>
+						<option value="4"><p>Math without Calculator</p></option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<br><hr>
+		<div class="page-container">
+			<div class="question-statement">
+				<h2 style="text-align: center; padding-bottom: 3.3rem;">Question Statement</h2>
+				<textarea class="statement latex-textarea" id="statement" required></textarea>
+				<br><br>
+				<div class="file-upload-container">
+					<label class="file-upload">
+						Upload Image
+						<input type="file" id="statement-image" hidden/>
+					</label>
+					<div class="image-filename" id="statement-image-filename">No file chosen</div>
+				</div>
+			</div>
+			<div class="answer">
+				<h2 style="text-align: center;">Answer</h2>
+				<div class="type-switch">
+					<p>Multiple Choice</p>
+					<label class="switch">
+						<input type="checkbox" id="answer-type">
+						<span class="slider round"></span>
+					</label>
+					<p>Free Response</p>
+				</div>
+				<div class="multiple-choice" id="answer-multiple-choice">
+					<table class="answer-container">
+						<tr>
+							<td rowspan="2">
+								<textarea class="answer latex-textarea" id="answer-1" required></textarea>
+							</td>
+							<td class="answer-upload">
+								<label class="file-upload">
+									Upload Image
+									<input type="file" id="answer-1-image" hidden/>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="image-filename" id="answer-1-image-filename">No file chosen</div>
+							</td>
+						</tr>
+						<!----------------------->
+						<tr>
+							<td rowspan="2">
+								<textarea class="answer latex-textarea" id="answer-2" required></textarea>
+							</td>
+							<td class="answer-upload">
+								<label class="file-upload">
+									Upload Image
+									<input type="file" id="answer-2-image" hidden/>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="image-filename" id="answer-2-image-filename">No file chosen</div>
+							</td>
+						</tr>
+						<!----------------------->
+						<tr>
+							<td rowspan="2">
+								<textarea class="answer latex-textarea" id="answer-3" required></textarea>
+							</td>
+							<td class="answer-upload">
+								<label class="file-upload">
+									Upload Image
+									<input type="file" id="answer-3-image" hidden/>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="image-filename" id="answer-3-image-filename">No file chosen</div>
+							</td>
+						</tr>
+						<!----------------------->
+						<tr>
+							<td rowspan="2">
+								<textarea class="answer latex-textarea" id="answer-4" required></textarea>
+							</td>
+							<td class="answer-upload">
+								<label class="file-upload">
+									Upload Image
+									<input type="file" id="answer-4-image" hidden/>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="image-filename" id="answer-4-image-filename">No file chosen</div>
+							</td>
+						</tr>
+					</table>
+					<div class="custom-select">
+						<select id="correct-answer">
+							<option value="0"><p>Select a correct answer</p></option>
+							<option value="1"><p>A</p></option>
+							<option value="2"><p>B</p></option>
+							<option value="3"><p>C</p></option>
+							<option value="4"><p>D</p></option>
+						</select>
+					</div>
+				</div>
+				<div class="free-response" id="answer-free-response" style="display: none;">
+					<div>
+                            <div class="free-response-tb">
+                                <div
+                                    style="
+                                        display: grid;
+                                        grid-template-columns: [first] 15% [second] 75% [third] 10%;
+                                    "
+                                >
+                                    <div
+                                        class="free-response-header"
+                                        style="
+                                            grid-column-start: first;
+                                            grid-column-end: second;
+                                            display: flex;
+                                            align-items: center;
+                                        "
+                                    >
+                                        <h3>Answer Statement</h3>
+                                    </div>
+                                    <div
+                                        style="
+                                            grid-column-start: second;
+                                            grid-column-end: third;
+                                        "
+                                    >
+                                        <textarea
+                                            class="statement latex-textarea"
+                                            id="free-response-statement"
+                                            required=""
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <div
+                                    style="
+                                        display: grid;
+                                        grid-template-columns: [first] 15% [second] 75% [third] 10%;
+                                    "
+                                >
+                                    <div
+                                        class="free-response-header"
+                                        style="
+                                            grid-column-start: first;
+                                            grid-column-end: second;
+                                            display: flex;
+                                            align-items: center;
+                                        "
+                                    >
+                                        <h3>Correct Answer</h3>
+                                    </div>
+                                    <div
+                                        style="
+                                            grid-column-start: second;
+                                            grid-column-end: third;
+                                        "
+                                    >
+                                        <textarea
+                                            class="answer latex-textarea"
+                                            id="free-response"
+                                            required=""
+                                        ></textarea>
+                                    </div>
+                                    <div
+                                        style="
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: space-around;
+                                        "
+                                    >
+                                        <img
+                                            width="20px"
+                                            height="20px"
+                                            src="images/add.png"
+                                            onclick="addCorrectAnswer();"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="preview">
+			<div class="preview-title">
+				<h2>Preview</h2>
+				<div class="mini-loader"></div>
+			</div>
+			<div class="preview-container" id="preview">
+			</div>
+		</div>
+
+		<button type='button' class="btn" id="submit-btn"><b>SUBMIT</b></button>
+
+		<div class="show-math-keyboard" id="show-math-keyboard">
+			<img class="symbol" src="../assets/symbol/keyboard.png"></img>
+		</div>
+		<div class="math-keyboard" id="math-keyboard" hidden>
+			<span class="closebtn" id="hide-math-keyboard">&times;</span>
+			<table>
+				<td class="pad-button" data-append="^2" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/square.png"></img>
+				</td>
+				<td class="pad-button" data-append="^{}" data-moveleft="1">
+					<img class="symbol" src="../assets/symbol/exp.png"></img>
+				</td>
+				<td class="pad-button" data-append="\frac{}{}" data-moveleft="2">
+					<img class="symbol" src="../assets/symbol/frac.png"></img>
+				</td>
+				<td class="pad-button" data-append="\sqrt{}" data-moveleft="1">
+					<img class="symbol" src="../assets/symbol/sqrt.png"></img>
+				</td>
+				<td class="pad-button" data-append="\nthroot{}{}" data-moveleft="2">
+					<img class="symbol" src="../assets/symbol/nthroot.png"></img>
+				</td>
+				<td class="pad-button" data-append="\le" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/le.png"></img>
+				</td>
+				<td class="pad-button" data-append="\ge" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/ge.png"></img>
+				</td>
+				<td class="pad-button" data-append="\log_{}\left(\right)" data-moveleft="3">
+					<img class="symbol" src="../assets/symbol/log.png"></img>
+				</td>
+				<td class="pad-button" data-append="\angle" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/angle.png"></img>
+				</td>
+				<td class="pad-button" data-append="\pi " data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/pi.png"></img>
+				</td>
+				<td class="pad-button" data-append="\infty " data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/infty.png"></img>
+				</td>
+				<td class="pad-button" data-append="<b></b>" data-moveleft="4">
+					<img class="symbol" src="../assets/symbol/bold.png"></img>
+				</td>
+				<td class="pad-button" data-append="<i></i>" data-moveleft="4">
+					<img class="symbol" src="../assets/symbol/italic.png"></img>
+				</td>
+			</table>
+			<p><span class="math-notation" id="math-notation"></span></p>
+			<button type='button' class="btn add-notation-btn" id="add-notation-btn">Add Math Notation</button>
+		</div>
+	</div>
+
+	<link rel="stylesheet" href="donate.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script> 
+		$(function(){
+			$("#header").load("../assets/header.html");
+		});
+	</script> 
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+	<script src="donate.js"></script>
+</body>
+</html>

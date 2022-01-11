@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | View Exam</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	<button class="btn" id="print_btn"><b>Print</b></button>
+	<div id="modal-container" class="modal">
+		<span onclick="this.parentElement.style.display = 'none';" class="close">&times;</span>
+		<img class="modal-content" id="modal-img">
+	</div>
+	<div id="main"></div>
+
+
+	<link rel="stylesheet" href="exam.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="view_exam.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

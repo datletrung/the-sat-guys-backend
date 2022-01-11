@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Start Exam</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	<div class="alert">
+		<div id="set-timer-container">
+		Set your timer
+		<br><br>
+			<div class="set-timer">
+				<input class="set-timer-box hours-input" id="hours-input" type="text" disabled value="01">H</input>
+				<b>:</b>
+				<input class="set-timer-box minutes-input" id="minutes-input" type="text" value="30">M</input>
+			</div>
+		</div>
+		<div id="msg"></div>
+		<br><hr>
+		<button class="btn" id="ok-btn" onclick="this.parentElement.style.display='none';">OK</button>
+	</div>
+	<div class="loader"></div>
+	
+	<div class="main-body-blurred" id="main-body">
+		<div id="modal-container" class="modal">
+			<span onclick="this.parentElement.style.display = 'none';" class="close">&times;</span>
+			<img class="modal-content" id="modal-img">
+		</div>
+		<div class="timer-container">
+			<div class="timer" id="timer">
+				<p_green>You have: 0h 0m 0s</p_green>
+			</div>
+			<div class="btn-container">
+				<button class="btn start-exam-btn" id="submit-btn"><b>SUBMIT EXAM</b></button>
+				<button class="btn start-exam-btn" id="reset-btn"><b>Reset Exam</b></button>
+				<button class="btn start-exam-btn" id="exit-btn"><b>EXIT</b></button>
+			</div>
+		</div>
+		<div class="main" id="main"></div>
+
+		<div id="main-body" class="main-body">
+			<div class="report-container">
+				<h2 style="text-align:center">Tell us about your experience</h2>
+				<div class="center-div">
+					<input class="report-input" id="real-name" placeholder="Name" autocomplete="off" required>
+					<input class="report-input" id="email" placeholder="Email" autocomplete="off" required>
+					<input class="report-input" id="title" placeholder="Title" maxlength="100" autocomplete="off" required>
+					<textarea class="report-textarea" id="message" placeholder="Message (e.g. Great Exam, Question 12 - Multiple Choice has a typo, ...)" maxlength="1000" autocomplete="off" required></textarea>
+					<button class="btn" id="submit-report-exam-btn">Submit</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="show-math-keyboard" id="show-math-keyboard">
+			<img class="symbol" src="../assets/symbol/keyboard.png"></img>
+		</div>
+		<div class="math-keyboard" id="math-keyboard" hidden>
+			<span class="closebtn" id="hide-math-keyboard">&times;</span>
+			<table>
+				<td class="pad-button" data-append="^2" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/square.png"></img>
+				</td>
+				<td class="pad-button" data-append="^{}" data-moveleft="1">
+					<img class="symbol" src="../assets/symbol/exp.png"></img>
+				</td>
+				<td class="pad-button" data-append="\frac{}{}" data-moveleft="2">
+					<img class="symbol" src="../assets/symbol/frac.png"></img>
+				</td>
+				<td class="pad-button" data-append="\sqrt{}" data-moveleft="1">
+					<img class="symbol" src="../assets/symbol/sqrt.png"></img>
+				</td>
+				<td class="pad-button" data-append="\nthroot{}{}" data-moveleft="2">
+					<img class="symbol" src="../assets/symbol/nthroot.png"></img>
+				</td>
+				<td class="pad-button" data-append="\le" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/le.png"></img>
+				</td>
+				<td class="pad-button" data-append="\ge" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/ge.png"></img>
+				</td>
+				<td class="pad-button" data-append="\log_{}\left(\right)" data-moveleft="3">
+					<img class="symbol" src="../assets/symbol/log.png"></img>
+				</td>
+				<td class="pad-button" data-append="\angle" data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/angle.png"></img>
+				</td>
+				<td class="pad-button" data-append="\pi " data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/pi.png"></img>
+				</td>
+				<td class="pad-button" data-append="\infty " data-moveleft="0">
+					<img class="symbol" src="../assets/symbol/infty.png"></img>
+				</td>
+			</table>
+			<p><span class="math-notation" id="math-notation"></span><p>
+		</div>
+	</div>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.css">
+	<link rel="stylesheet" href="exam.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script src="start_exam.js"></script>
+	<script src="../report/report.js"></script>
+</body>
+</html>

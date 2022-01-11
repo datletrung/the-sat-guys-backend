@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Sign up</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../assets/icon/clover.ico"/>
+	<meta name="google-signin-client_id" content="403042058787-n2btraulv3uf6bci3abog9o0favq5d0e.apps.googleusercontent.com">
+</head>
+
+<body>
+	<div class="alert" style="display:none;">
+		<div id="msg"></div>
+		<br><hr>
+		<button class="btn" id="ok-btn" onclick="this.parentElement.style.display='none';">OK</button>
+	</div>
+	<div class="loader"></div>
+	<div id="main-body" class="main-body">
+		<header id="header"></header>
+		<div class="container">
+			<div class="row">
+				<h2 style="text-align:center">Sign up Manually or with Social Media</h2>
+
+				<div class="col">
+					<input id="real-name" placeholder="Real Name" required>
+					<input id="user" placeholder="Email" required>
+					<button class="btn" id="submit-btn">Sign up</button>
+				</div>
+
+				<div class="col">
+					<div class="vl">
+						<span class="vl-innertext">or</span>
+					</div>
+				</div>
+
+				<div class="col center-text">
+					<a href="" class="google btn sign-in" id="google-sign-up">
+						<i class="fa fa-google fa-fw"></i> Sign up with Google
+					</a>
+					<a href="" class="fb btn sign-in" id="facebook-sign-up">
+						<i class="fa fa-facebook fa-fw"></i> Sign up with Facebook
+					</a>
+				</div>
+			</div>
+
+			<center><p><small>By signing up, you agree to our <a href="../../terms_conditions.html" target="_blank"><small>Terms and Conditions</small></a> and <a href="../../privacy_policy.html" target="_blank"><small>Privacy Policy</small></a>.</small></p></center>
+		</div>
+
+		<div class="bottom-container">
+			<div class="row">
+				<a href="../" style="color:white" class="btn botton-btn">Sign in</a>
+			</div>
+		</div>
+	</div>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../auth.css">
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=207960224708607&autoLogAppEvents=1" nonce="WEQXfAJS"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=onLoadGoogleCallback" async defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script> 
+		$(function(){
+			$("#header").load("../../assets/header.html");
+		});
+	</script>
+	<script src="signup.js"></script>
+</body>
+</html>

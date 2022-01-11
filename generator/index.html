@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Generator</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	<div class="alert" style="display:none;">
+		<div id="msg"></div>
+		<br><hr>
+		<button class="btn" id="okBtn">OK</button>
+	</div>
+	<div class="loader"></div>
+
+	<div class="main-body" id="main-body">
+		<header id="header"></header>
+
+		<div class="dropdown-container" style="padding: 1rem;">
+			<h1>How do you want to setup your exam? </h1>
+
+			<label class="radio-container">I want to specify the number of questions for each sections and topics.
+				<input type="radio" name="radio" id="specify">
+				<span class="radio-checkmark"></span>
+			</label>
+			<label class="radio-container">I just need a certain amount of questions. I don't care how it is distributed among the sections.
+				<input type="radio" name="radio">
+				<span class="radio-checkmark"></span>
+			</label>
+		<label class="radio-container">I just need a normal SAT exam.
+				<input type="radio" name="radio" id="normal_strategy" checked>
+				<span class="radio-checkmark"></span>
+			</label>
+			<button class="btn" id="submit_strategy">Update Option</button>
+		</div>
+
+		<br><br>
+
+		<div id="num_ques_container" style="display: flex; align-items: center;">
+			<b style="margin: 0 10px 0 18px;">Number of Questions</b>
+			<input class="num-ques" type="number" id="num_ques" autocomplete="off">
+			<div class="mini-loader"></div>
+		</div>
+
+		<br><br>
+
+		<fieldset class="dropdown-container">
+			<legend><b>Exam Section</b></legend>
+			<div class="dropdown-btn-container">
+				<button class="dropdown" hide-item="exam-part">
+					<i style="font-size: 30px !important" class="fa fa-angle-down" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="subcontainer" id="exam-part">
+				<label class="checkbox-content">Reading (Unavailable)
+					<input disabled type="checkbox" id="checkbox_reading" part="reading">
+					<span class="checkbox-checkmark"></span>
+				</label>
+				<label class="checkbox-content">Writing (Unavailable)
+					<input disabled type="checkbox" id="checkbox_writing" part="writing">
+					<span class="checkbox-checkmark"></span>
+				</label>
+				<label class="checkbox-content">Math with Calculator
+					<input type="checkbox" id="checkbox_cal" part="cal">
+					<span class="checkbox-checkmark"></span>
+				</label>
+				<label class="checkbox-content">Math without Calculator
+					<input type="checkbox" id="checkbox_no_cal" part="no_cal">
+					<span class="checkbox-checkmark"></span>
+				</label>
+			</div>
+		</fieldset>
+
+		<div class="num-topic-container">
+		<br><br>
+			<fieldset class="dropdown-container">
+				<legend><b>Number of Questions for each Topic</b></legend>
+				<div class="dropdown-btn-container">
+					<button class="dropdown" hide-item="num-per-topic">
+						<i style="font-size: 30px !important" class="fa fa-angle-down" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="subcontainer" id="num-per-topic">
+					<br><br>
+					<div class="subcontainer topic-container" id="part_reading">
+						<div class="partcontainer">
+							<p class="part">Reading</p>
+							<input class='input_topic total_per_part' part="reading" type='number' id='num_reading' value='' autocomplete='off' oninput="updatePartNum(this)">
+							<div class="mini-loader"></div>
+						</div>
+					</div>
+
+					<div class="subcontainer topic-container" id="part_writing">
+						<div class="partcontainer">
+							<p class="part">Writing</p>
+							<input class='input_topic total_per_part' part="writing" type='number' id='num_writing' value='' autocomplete='off' oninput="updatePartNum(this)">
+							<div class="mini-loader"></div>
+						</div>
+					</div>
+
+					<div class="subcontainer topic-container" id="part_cal">
+						<div class="partcontainer">
+							<p class="part">Math with Calculator</p>
+							<input class='input_topic total_per_part' part="cal" type='number' id='num_cal' value='' autocomplete='off' oninput="updatePartNum(this)">
+							<div class="mini-loader"></div>
+							<button class="btn btn-random" part="cal">Random</button>
+						</div>
+						<table class="topic" id="topic_cal"></table>
+					</div>
+
+					<div class="subcontainer topic-container" id="part_no_cal">
+						<div class="partcontainer">
+							<p class="part">Math without Calculator</p>
+							<input class='input_topic total_per_part' part="no_cal" type='number' id='num_no_cal' value='' autocomplete='off' oninput="updatePartNum(this)">
+							<div class="mini-loader"></div>
+							<button class="btn btn-random" part="no_cal">Random</button>
+						</div>
+						<table class="topic" id="topic_no_cal"></table>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<br><br>
+
+		<fieldset class="dropdown-container">
+			<legend><b>Difficulty Ratio</b></legend>
+			<div class="dropdown-btn-container">
+				<button class="dropdown" hide-item="diff-ratio">
+					<i style="font-size: 30px !important" class="fa fa-angle-down" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="subcontainer" id="diff-ratio">
+				<div class="diff-container">
+					<div>
+						<div style="display: flex; column-gap: 1rem; align-items: center;">
+							<div class="diff-label">
+								<label for="slider_easy">Easy</label>
+							</div>
+							<input class="input_topic input-diff" type="number" id="diff_num_easy" value="0"></p>
+							<div style="display:flex;">
+								<p>(</p>
+								<div style="display: flex; align-items: center; column-gap: 5px;">
+									<div class="percentage">
+										<p type="number" class="diff-number" id="diff_percent_easy">0</p>
+									</div>
+									<div style="width: fit-content;">%</div>
+								</div>
+								<p>)</p>
+							</div>
+						</div>
+						
+						<div style="display: flex; column-gap: 1rem; align-items: center;">
+							<div class="diff-label">
+								<label for="slider_normal">Normal</label>
+							</div>
+							<input class="input_topic input-diff" type="number" id="diff_num_normal" value="0"></p>
+							<div style="display:flex;">
+								<p>(</p>
+								<div style="display: flex; align-items: center; column-gap: 5px;">
+									<div class="percentage">
+										<p type="number" class="diff-number" id="diff_percent_normal">0</p>
+									</div>
+									<div style="width: fit-content;">%</div>
+								</div>
+								<p>)</p>
+							</div>
+						</div>
+						
+						<div style="display: flex; column-gap: 1rem; align-items: center;">
+							<div class="diff-label">
+								<label for="slider_hard">Hard</label>
+							</div>
+							<input class="input_topic input-diff" type="number" id="diff_num_hard" value="0"></p>
+							<div style="display:flex;">
+								<p>(</p>
+								<div style="display: flex; align-items: center; column-gap: 5px;">
+									<div class="percentage">
+										<p type="number" class="diff-number" id="diff_percent_hard">0</p>
+									</div>
+									<div style="width: fit-content;">%</div>
+								</div>
+								<p>)</p>
+							</div>
+						</div>
+					</div>
+					<div style="display:flex; justify-content: center; align-items: center;">
+						<div id="piechart"></div>
+						<div class="mini-loader"></div>
+					</div>
+				</div>
+				<div style="display:flex; align-items: center;">
+					<p><b>Total:</b></p>
+					<p style="margin-left: 10px;" id="diffNumTotal">0</p>
+				</div>
+			</div>
+		</fieldset>
+
+		<br><hr>
+
+		<div class="total">
+			<p><b>Total number of question: </b></p>
+			<p style="padding-left: 5px;" id="total_num_ques">0</p>
+		</div>
+
+		<br>
+		<button type='button' class="btn" id="resetBtn">Reset</button>
+		<br><br>
+		<button type='button' class="btn" id="submitBtn"><b>GENERATE EXAM</b></button>
+		<br><hr>
+		<button disabled type='button' class="btn" id="viewExamBtn">View Exam</button>
+		<br><br>
+		<button disabled type='button' class="btn" id="startExamBtn">Start Exam</button>
+	</div>
+	
+	<link rel="stylesheet" href="generator.css">
+
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script> 
+		$(function(){
+			$("#header").load("../assets/header.html");
+		});
+	</script>
+	<script src="generator.js"></script>
+</body>
+</html>

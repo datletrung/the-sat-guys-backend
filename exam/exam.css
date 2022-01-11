@@ -1,0 +1,548 @@
+* :not(.MathJax, h2, h3, small){
+	font-size: 16px;
+}
+
+.btn, p_green, p_red, .question-number, b, h2, h3, .alert, textarea.report-textarea, input.report-input{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.center-img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: 500px;
+}	
+
+.main-body-blurred{
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+	pointer-events: none;
+}
+
+.main-body{
+}
+
+p_green {
+	color: green;
+	font-weight: bold;
+}
+
+p_red {
+	color: #f44336;
+	font-weight: bold;
+}
+
+.timer-container {
+	z-index: 1;
+	display: flex;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	position: fixed;
+	background-color: #fff;	/* White */
+}
+
+.timer {
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	justify-items: space-between;
+	padding-left: 10px;
+}
+
+.btn-container{
+	justify-items: space-between;
+	float: right;
+	padding-right: 30px;
+}
+
+.set-timer {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: fit-content;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin: auto;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+.set-timer-box {
+	width: 2rem;
+	height: 2.5rem;
+	text-align: center;
+	font-size: 1.6rem;
+}
+
+input.set-timer-box {
+	border: none;
+	background-color: transparent;
+}
+
+input.set-timer-box:focus {
+	outline: none;
+}
+
+input.set-timer-box:disabled {
+	color: black;
+}
+
+
+.loader {
+    z-index: 1;
+    position: fixed;
+    display: none;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid #04aa6d;
+    width: 45px;
+    height: 45px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+.btn:hover {
+	background-color: #3a8c3d; /* Green */
+}
+
+.btn {
+	background-color: #4caf50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.btn#reset-btn, .btn#exit-btn {
+	background-color: #e60000; /* Red */
+}
+
+.btn#ok-btn {
+	padding: 5px 12px;
+}
+
+
+.btn#print_btn {
+	width: 100%;
+}
+
+.btn:disabled {
+	background-color: #d3d3d3; /* Grey */
+}
+
+.start-exam-btn {
+	padding: 8px 15px;
+}
+
+.main {
+	width: 100%;
+	padding-top: 60px;
+}
+
+.question-container {
+	padding-left: 2%;
+	width: 98%;
+}
+
+.question-number {
+	font-weight: bold;
+	font-size: 20px;
+	vertical-align: top;
+}
+
+.question-content {
+	font-size: 20px;
+	vertical-align: top;
+	padding-left: 10px;
+	width: 100%;
+}
+
+.answer-table {
+	width: 100%;
+	text-align: left;
+}
+
+.answer-table-container {
+	width: 50%;
+}
+
+.answer-single-container, .answer-table-container, .correct-answer {
+	padding-left: 5%;
+}
+
+.correct-answer {
+	font-weight: bold;
+	color: #4caf50 !important;
+}
+
+
+p_green {
+	color: green;
+	font-weight: bold;
+}
+
+p_red {
+	color: #f44336;
+	font-weight: bold;
+}
+
+/* style the container */
+.report-container {
+	position: relative;
+	border-radius: 5px;
+	padding: 20px 0 30px 0;
+}
+
+.center-div {
+	max-width: 400px;
+	width: 100%;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+/* style inputs and link buttons */
+textarea.report-textarea, input.report-input {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	margin: 5px 0;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 20px;
+	text-decoration: none; /* remove underline from anchors */
+}
+
+.btn#submit-report-btn {
+	width: 100%;
+}
+
+.btn#submit-report-btn:hover {
+	background-color: #3a8c3d; /* Green */
+}
+
+textarea.report-textarea, input.report-input {
+	border: none;
+	border-bottom: 2px solid green;
+}
+
+textarea.report-textarea {
+	height: 120px;
+	resize: vertical;
+}
+
+/*----------MathQuill----------*/
+.closebtn {
+	margin-left: 20px;
+	color: #ccc;
+	font-weight: bold;
+	float: right;
+	font-size: 28px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.closebtn:hover {
+	color: black;
+}
+
+/*-------------------------*/
+
+.show-math-keyboard {
+	z-index: 1;
+	position: fixed;
+	box-sizing: border-box;
+	bottom: 20%;
+	left: 0;
+}
+
+.math-keyboard {
+	z-index: 2;
+	position: fixed;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 100%;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #ededed;
+}
+
+/*-------------------------*/
+
+.pad-button {
+	background-color: #fff;
+	cursor: pointer;
+	border: 1px solid #eee;
+	text-align: center;
+}
+
+.pad-button:hover {
+	background-color: #ccc;
+}
+
+.symbol {
+	width: 52px;
+	height: 31px;
+}
+
+.free-response {
+	overflow-y: scroll;
+	width: 80%;
+	height: 50px;
+	padding: 12px 10px;
+	background-color: #fff;
+	box-sizing: border-box;
+	border-bottom: 2px solid #ccc;
+	border-radius: 4px;
+	resize: none;
+}
+
+.free-response.mq-editable-field.mq-math-mode {
+	border-top: 0 !important;
+	border-left: 0 !important;
+	border-right: 0 !important;
+}
+
+.free-response.answer-input.answer-input-wrong.mq-editable-field.mq-math-mode {
+	border-bottom: 2px solid #f44336 !important;
+}
+
+.free-response.answer-input.answer-input-correct.mq-editable-field.mq-math-mode {
+	border-bottom: 2px solid #4caf50 !important;
+}
+
+
+.free-response.mq-focused {
+	box-shadow: none;
+}
+
+table {
+	width: 100%;
+}
+
+/*----------ALERT-------------*/
+
+.alert {
+	z-index: 2;
+	width: 80%;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	position: fixed;
+	text-align: center;
+	padding: 20px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: #f5f5f5;
+	border: 1px solid #73AD21;
+}
+
+/*-----------------Checkbox-------------
+/* Customize the label (the container) */
+.checkmark-container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.checkmark-container-wrong, .answer-input-wrong {
+	text-decoration: line-through;
+	/*-webkit-text-decoration-color: #f44336; */
+	text-decoration-color: #f44336;
+	color: #f44336 !important;
+}
+
+.checkmark-container-correct, .answer-input-correct {
+	font-weight: bold;
+	color: #4caf50 !important;
+}
+
+/* Hide the browser's default radio button */
+.checkmark-container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.checkmark-container:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the radio button is checked, add a green background */
+.checkmark-container input:checked ~ .checkmark {
+	background-color: #4caf50; /* Green */
+}
+
+.checkmark-container input:disabled ~ .checkmark {
+	background-color: #d3d3d3; /* Grey */
+}
+
+.checkmark-container input:disabled ~ .checkmark-wrong {
+	background-color: #f44336 !important; /* Red */
+}
+
+.checkmark-container input:disabled ~ .checkmark-correct {
+	background-color: #4caf50 !important; /* Green */
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.checkmark-container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+.checkmark-container input:disabled ~ .checkmark:after {
+	background-color: black; /* Black */
+}
+
+.checkmark-container input:disabled ~ .checkmark-wrong:after {
+	background-color: #f44336 !important;
+}
+
+.checkmark-container input:disabled ~ .checkmark-correct:after {
+	background-color: #4caf50 !important;
+}
+
+/* Style the indicator (dot/circle) */
+.checkmark-container .checkmark:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+/*-----------------------------*/
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 3; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: block;
+	width: 100%;
+	height: 80%;
+	object-fit: contain;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+	from {transform:scale(0)}
+	to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/*---------scroll-------*/
+/* width */
+span::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+span::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+span::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+span::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+
+
+@media (max-width: 900px) {
+	.timer-container {
+		flex-direction: column;
+	}
+
+	.start-exam-btn {
+		width: 100%;
+	}
+
+	.btn-container{
+		padding: 0;
+		float: unset;
+	}
+}

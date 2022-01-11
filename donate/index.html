@@ -1,0 +1,97 @@
+</!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Donate</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	<header id="header"></header>
+	<center><h1>Donate</h1></center>
+	<div class="flex-row">
+		<div class="flex-column">
+			<img src='images/donate.jpg'/>
+			<button class='btn' onclick="window.location='donate.html'">Donate Now</button>
+		</div>
+		<div class="content">
+			<p>
+				We don't ask you to donate any money. All we need from you is your contributions. You can definitely help us a lot by donating any questions or any problems regarding the SAT Exam.
+			</p>
+			<br>
+			<p>
+				Your question or problem will be carefully and precisely reviewed by our professional teacher team. The team will decide whether each question/problem you donated is accurate, well-formatted (we use Latex format for Math notations), and so on.
+			</p>
+			<br>
+			<p>
+				Each question/problem after being approved by the team will be part of our question bank, and they will randomly be picked based on users' demand.
+			</p>
+		</div>
+	</div>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script> 
+		$(function(){
+			$("#header").load("../assets/header.html");
+		});
+	</script>
+	<style>
+		* :not(h1){
+			font-size: 16px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		img {
+			width: 100%;
+			max-height: 200px;
+			object-fit: contain;
+			margin: 10px;
+		}
+		.flex-row {
+			width: 100%;
+			display: flex;
+			box-sizing: border-box;
+			justify-content: space-between;
+		}
+		.flex-column {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			box-sizing: border-box;
+		}
+		.content {
+			width: 100%;
+			box-sizing: border-box;
+			margin: auto;
+			padding: 10px;
+		}
+
+		.btn:hover {
+			background-color: #3a8c3d; /* Green */
+		}
+
+		.btn {
+			width: 100%;
+			background-color: #4caf50; /* Green */
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		@media screen and (max-width: 700px) {
+			.flex-row {
+				flex-direction: column;
+			}
+		}
+		
+	</style>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TheSATGuys | Start Exam</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/icon/clover.ico"/>
+</head>
+
+<body>
+	<header id="header"></header>
+	<center><h1>Start Exam</h1></center>
+	<div class="container">
+		<button class='btn' id="reading">Reading</button>
+		<div class="exam-result" id="result-reading">
+			<p class="result">Score: N/A - N/A</p>
+			<p class="result">Time: N/A</p>
+		</div>
+	</div>
+	<div class="container">
+		<button class='btn' id="writing">Writing</button>
+		<div class="exam-result" id="result-writing">
+			<p class="result">Score: N/A - N/A</p>
+			<p class="result">Time: N/A</p>
+		</div>
+	</div>
+	<div class="container">
+		<button class='btn' id="no_cal">Math without Calculator</button>
+		<div class="exam-result" id="result-no_cal">
+			<p class="result">Score: N/A - N/A%</p>
+			<p class="result">Time: N/A</p>
+		</div>
+	</div>
+	<div class="container">
+		<button class='btn' id="cal">Math with Calculator</button>
+		<div class="exam-result" id="result-cal">
+			<p class="result">Score: N/A - N/A%</p>
+			<p class="result">Time: N/A</p>
+		</div>
+	</div>
+
+	<center><p><i>* Your score will be save in our database. *</i></p></center>
+	<center><p><i>* Resetting exam will change your score on this page. *</i></p></center>
+	<center><p><i>* Resetting exam will NOT affect your score in our database after the first submission. *</i></p></center>
+	<style>
+		* :not(h1){
+			font-size: 16px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		img {
+			width: 100%;
+			max-width: 500px;
+			object-fit: contain;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 750px;
+			box-sizing: border-box;
+			display: none;
+			align-items: center;
+			border: 2px solid green;
+			border-radius: 5px;
+			padding: 5px 0 5px 10px;
+			left: 0;
+			right: 0;
+			margin: auto;
+			margin-bottom: 20px;
+		}
+
+		.exam-result {
+			width: 25%;
+			display: flex;
+			flex-flow: column;
+		}
+
+		.result {
+			margin: 5px 0 5px 10px;
+		}
+
+		.btn {
+			width: 75%;
+			height: 1%;
+			white-space: nowrap;
+			background-color: #4caf50; /* Green */
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		.btn:hover {
+			background-color: #3a8c3d; /* Green */
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script> 
+		$(function(){
+			$("#header").load("../assets/header.html");
+		});
+	</script>
+	<script src="exam.js"></script>
+</body>
+</html>
