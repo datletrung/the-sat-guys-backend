@@ -16,6 +16,22 @@
         "ping": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
           "s3Key": "amplify-builds/ping-334d35704b564c70776a-build.zip"
+        },
+        "examFetchSection": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/examFetchSection-772b50464c5232364942-build.zip"
+        },
+        "donateFetchTopic": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/donateFetchTopic-6333306c5777656b775a-build.zip"
+        },
+        "donate": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/donate-38367844684a635a3246-build.zip"
+        },
+        "examFetchQuestion": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/examFetchQuestion-2b3435314853686c4c77-build.zip"
         }
       }
     }

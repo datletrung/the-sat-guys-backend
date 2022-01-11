@@ -1,0 +1,22 @@
+{
+    "resource": "/donate",
+    "path": "/donate",
+    "httpMethod": "POST",
+    "body": {"action":"donate",
+            "questionConfig":{
+              "answers":[
+                {"answer":"a", "image": null, "isCorrect" : false, "isCondition":false},
+                {"answer":"b", "image": null, "isCorrect" : false, "isCondition":false},
+                {"answer":"c", "image": null, "isCorrect" : true, "isCondition":false},
+                {"answer":"d", "image": null, "isCorrect" : false, "isCondition":false}
+              ],
+              "question":{"question":"Statement Question", "image": null},
+              "section":"cal",
+              "topic":"System of Equations",
+              "qtype":"mc",
+              "difficulty":"easy",
+              "author_id":"Oal0rMk0yZsB"
+            }
+          },
+    "isBase64Encoded": "False"
+}

@@ -1,0 +1,7 @@
+{
+    "resource": "/donateFetchTopic",
+    "path": "/donateFetchTopic",
+    "httpMethod": "POST",
+    "body": {"action":"fetchTopic"},
+    "isBase64Encoded": "False"
+}

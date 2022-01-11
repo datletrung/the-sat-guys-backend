@@ -7,6 +7,34 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/donate": {
+      "name": "/donate",
+      "lambdaFunction": "donate",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/examFetchQuestion": {
+      "name": "/examFetchQuestion",
+      "lambdaFunction": "examFetchQuestion",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/examFetchSection": {
+      "name": "/examFetchSection",
+      "lambdaFunction": "examFetchSection",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/donateFetchTopic": {
+      "name": "/donateFetchTopic",
+      "lambdaFunction": "donateFetchTopic",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
