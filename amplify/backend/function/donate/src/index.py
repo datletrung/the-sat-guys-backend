@@ -89,12 +89,24 @@ class UpdateDB:
             conn.commit()
             return True, ""
     
-    def rollback(conn, topic_id, question_id = None):
+    def rollback(conn, bucket, topic_id, question_id = None):
         if topic_id:
             UpdateDB.restore_topic(conn, topic_id)
         if question_id:
             UpdateDB.restore_question(conn, question_id)
             UpdateDB.restore_answer(conn, question_id)
+            if bucket:
+                image_list = ["images/problem-"+question_id+"-statement.PNG",
+                            "images/problem-"+question_id+"-answer1.PNG",
+                            "images/problem-"+question_id+"-answer2.PNG",
+                            "images/problem-"+question_id+"-answer3.PNG",
+                            "images/problem-"+question_id+"-answer4.PNG",
+                            ]
+                for image in image_list:
+                    try:
+                        UpdateS3.delete_image(bucket, image)
+                    except:
+                        pass
 
     def restore_topic(conn, topic_id):
         with conn.cursor() as cursor:
@@ -124,7 +136,7 @@ class UpdateS3:
         bucket.put_object(Key=image_name, Body=image)
 
     def delete_image(bucket, image_name):
-        pass
+        bucket.delete_object(Key=image_name)
 
 
 #---------------------------BEGIN MAIN---------------------------
@@ -167,7 +179,7 @@ def main(event):
             is_image = True if question_image else False
             status, data = UpdateDB.update_question(conn, question_statement, is_image, topic_id, author_id)
             if not status:
-                UpdateDB.rollback(conn, topic_id)
+                UpdateDB.rollback(conn, bucket, topic_id)
                 return False, "Error while updating database (1120): " + str(data)
             question_id = data
 
@@ -177,7 +189,7 @@ def main(event):
                     question_image_name = "images/problem-" + question_id + "-statement.PNG"
                     UpdateS3.put_image(bucket, question_image_name, question_image)
                 except:
-                    UpdateDB.rollback(conn, topic_id, question_id)
+                    UpdateDB.rollback(conn, bucket, topic_id, question_id)
                     return False, "Error while uploading files!"
 
 
@@ -189,7 +201,7 @@ def main(event):
                     answer_statement, answer_image, is_correct, is_condition = \
                         answer['answer'], answer['image'], answer['isCorrect'], answer['isCondition']
                 except Exception as e:
-                    UpdateDB.rollback(conn, topic_id, question_id)
+                    UpdateDB.rollback(conn, bucket, topic_id, question_id)
                     return False, "Invalid request! (1030)"
                 
                 is_image = ""
@@ -199,11 +211,11 @@ def main(event):
                         UpdateS3.put_image(bucket, answer_image_name, answer_image)
                         is_image = "answer"+str(count)
                     except:
-                        UpdateDB.rollback(conn, topic_id, question_id)
+                        UpdateDB.rollback(conn, bucket, topic_id, question_id)
                         return False, "Error while uploading files!"
                 status = UpdateDB.update_answer(conn, question_id, answer_statement, is_image, is_condition, is_correct)
                 if not status:
-                    UpdateDB.rollback(conn, topic_id, question_id)
+                    UpdateDB.rollback(conn, bucket, topic_id, question_id)
                     return False, "Database connection error!"
             return True, "Import question successfully!"
         else:

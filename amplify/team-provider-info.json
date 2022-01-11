@@ -27,7 +27,7 @@
         },
         "donate": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/donate-334f4f797a7978344c4b-build.zip"
+          "s3Key": "amplify-builds/donate-793179723748427a6c52-build.zip"
         },
         "examFetchQuestion": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
