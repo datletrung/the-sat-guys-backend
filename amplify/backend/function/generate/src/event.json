@@ -1,0 +1,38 @@
+{
+    "resource": "/donate",
+    "path": "/donate",
+    "httpMethod": "POST",
+    "body": {"action":"generate",
+            "generateConfig":{
+              "user_id": "c908e4b7-42b6-43f6-8b17-c47c010b8dfa",
+              "diffDict":{
+                "easy": 8,
+                "medium": 4,
+                "hard": 2
+              },
+              "sections":[
+                {"section": "cal",
+                 "style": "specific",
+                 "totalQuestion": 6,
+                 "topicDist": {
+                   "Percent": 2,
+                   "Angles": 1,
+                   "Constructing Models": 2,
+                   "Exponential vs Linear Growth": 1
+                 }
+                },
+                {"section": "no_cal",
+                  "style": "specific",
+                  "totalQuestion": 8,
+                  "topicDist": {
+                    "Solving Equations": 1,
+                    "Inequalities": 2,
+                    "Exponents and Radicals": 3,
+                    "System of Equations": 2
+                  }
+                 }
+              ]
+            }
+          },
+    "isBase64Encoded": "False"
+}
