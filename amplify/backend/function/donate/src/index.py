@@ -158,8 +158,7 @@ def main(event):
             topic = questionConfig["topic"]
             qtype = questionConfig["qtype"]
             difficulty = questionConfig["difficulty"]
-            #author_id = questionConfig["author_id"]
-            author_id = "Oal0rMk0yZsB"
+            author_id = questionConfig["author_id"]
         except Exception as e:
             return False, "Invalid request! (1020)"
     
