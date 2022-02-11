@@ -35,7 +35,7 @@
         },
         "generate": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/generate-34676d5561436f46626c-build.zip"
+          "s3Key": "amplify-builds/generate-75314b4132354f735467-build.zip"
         }
       }
     }

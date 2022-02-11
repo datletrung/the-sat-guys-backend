@@ -29,7 +29,7 @@ def get_secret():
         raise e
     
     secret = json.loads(response['SecretString'])
-    return [secret["db_host"], secret["db_usr"], secret["db_pwd"], secret["db_name"]]
+    return [secret["db_host"], secret["db_usr"], secret["db_pwd"], secret["db_name"], secret["s3_addr"]]
 
 
 def connect(db_host, db_usr, db_pwd, db_name):
@@ -45,9 +45,11 @@ def connect(db_host, db_usr, db_pwd, db_name):
 
 #---------------------------BEGIN MAIN---------------------------
 def main(event):
-    db_host, db_usr, db_pwd, db_name = get_secret()
-    #parser = json.loads(event["body"])
-    parser = event["body"]
+    db_host, db_usr, db_pwd, db_name, s3_addr = get_secret()
+    parser = json.loads(event["body"])
+    #parser = event["body"]
+    s3_bucket = s3_addr + "problem-"
+
     try:
         action = parser["action"]
         generate_config = parser["generateConfig"]
@@ -58,6 +60,10 @@ def main(event):
         status, conn = connect(db_host, db_usr, db_pwd, db_name)
         if status:
             with conn.cursor() as cursor:
+                final_response = {"exam_id": "",
+                                "sections": {}
+                                }
+
                 user_id = generate_config["user_id"]
                 sections = generate_config["sections"]
                 section_name_list = ['reading', 'writing', 'cal', 'no_cal']
@@ -122,7 +128,8 @@ def main(event):
                     
                     query = "SELECT `topic_id`, `count` FROM ("
                     query_list = []
-
+    
+                    ## CHECK ENOUGH QUESTION
                     for question_tuple in question_tuples:
                         question = dict((key, value) for key, value in question_tuple)
                         count = question_count[question_tuple]
@@ -130,7 +137,7 @@ def main(event):
                         topic = question["topic"]
                         diff = question["diff"]
                         qtype = question["type"]
-                        
+
                         query += "SELECT `topic_id`, %s AS `count` "\
                                 "FROM `topic` "\
                                 "WHERE `subtopic` = %s "\
@@ -153,10 +160,17 @@ def main(event):
                         query = ""
                         query_list = []
 
+                        ## SELECT QUESTION ID
                         for i in response:
                             topic_id = i["topic_id"]
                             count = i["count"]
-                            
+
+                            query += "(SELECT `question_id`"\
+                                    "FROM `question` "\
+                                    "WHERE `topic_id` = %s "\
+                                        "AND `approved` = 1 "\
+                                    "ORDER BY RAND() LIMIT %s)"
+                            '''
                             query += "(SELECT `question`.`question_id`, `topic`.`section` "\
                                     "FROM `question` "\
                                     "INNER JOIN `topic` "\
@@ -164,10 +178,10 @@ def main(event):
                                     "WHERE `topic`.`topic_id` = %s "\
                                         "AND `approved` = 1 "\
                                     "ORDER BY RAND() LIMIT %s)"
+                            '''
                             query += " UNION ALL "
                         
                             query_list += [topic_id, count]
-
                         
                         query = query.rstrip(" UNION ALL ")
 
@@ -181,17 +195,68 @@ def main(event):
                             if not respone:         #---------if ID not duplicate
                                 break
                         
+
+                        final_response["exam_id"] = exam_id
                         
                         for i in response:
                             question_id = i["question_id"]
-                            section = i["section"]
+
+                            query = """\
+                            SELECT `question`.`statement` as `question_statement`,\
+                                `question`.`image` as `question_image`,\
+                                `answer`.`statement` as `answer_statement`,\
+                                `answer`.`image` as `answer_image`,\
+                                `answer`.`is_condition`,\
+                                `topic`.`section`,
+                                `topic`.`type`\
+                            FROM `question`\
+                            INNER JOIN `topic`\
+                                ON `question`.`topic_id` = `topic`.`topic_id`\
+                            INNER JOIN `answer`\
+                                ON `question`.`question_id` = `answer`.`question_id`\
+                            WHERE `question`.`question_id` = %s\
+                            """
+
+                            cursor.execute(query, [question_id])
+                            response1 = cursor.fetchall()
+
+                            section = response1[0]["section"]
+                            question_type = response1[0]["type"]
+                            answer_statement = []
+                            answer_image = []
+
+                            if question_type == "mc":
+                                for i in response1:
+                                    answer_statement.append(i["answer_statement"])
+                                    image = i["answer_image"]
+                                    image = s3_bucket + question_id + "-" + image + ".PNG " if image else ""
+                                    answer_image.append(image)
+
+                            question_image = s3_bucket + question_id + "-statement.PNG " \
+                                if response1[0]["question_image"] else ""
+
+                            tmp = {
+                                "question_id": question_id,
+                                "question_type": question_type,
+                                "question_statement": response1[0]["question_statement"],
+                                "question_image": question_image,
+                                "answer_statement": answer_statement,
+                                "answer_image": answer_image,
+                                "is_condition": bool(response1[0]["is_condition"])
+                            }
+
+                            if section in final_response["sections"]:
+                                final_response["sections"][section].append(tmp)
+                            else:
+                                final_response["sections"][section] = [tmp]
+
                             query = "INSERT INTO `exam` (`exam_id`, `section`, `question_id`, `user_id`)\
                                     VALUES (%s, %s, %s, %s)\
                                     "
                             cursor.execute(query, [exam_id, section, question_id, user_id])
                         conn.commit()
 
-                        return True, exam_id
+                        return True, final_response
                 
                 return False, "There are not enough questions for the requested topic/section."
         else:
