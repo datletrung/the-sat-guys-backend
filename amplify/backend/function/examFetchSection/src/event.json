@@ -1,7 +1,0 @@
-{
-    "resource": "/examFetchSection",
-    "path": "/examFetchSection",
-    "httpMethod": "POST",
-    "body": "action=fetchSection&exam_id=6Zrnybr9vo3h",
-    "isBase64Encoded": "False"
-}

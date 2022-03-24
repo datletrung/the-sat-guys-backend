@@ -10,22 +10,17 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "examFetchQuestion": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "examFetchSection": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "donateFetchTopic": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
     "generate": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "fetchExam": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -54,22 +49,6 @@
         },
         {
           "category": "function",
-          "resourceName": "examFetchQuestion",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "examFetchSection",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
           "resourceName": "donateFetchTopic",
           "attributes": [
             "Name",
@@ -79,6 +58,14 @@
         {
           "category": "function",
           "resourceName": "generate",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "fetchExam",
           "attributes": [
             "Name",
             "Arn"

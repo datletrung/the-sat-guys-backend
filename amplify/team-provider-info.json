@@ -17,10 +17,6 @@
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
           "s3Key": "amplify-builds/ping-334d35704b564c70776a-build.zip"
         },
-        "examFetchSection": {
-          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/examFetchSection-365837324c7057485274-build.zip"
-        },
         "donateFetchTopic": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
           "s3Key": "amplify-builds/donateFetchTopic-4d6f46555a6441493768-build.zip"
@@ -29,13 +25,13 @@
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
           "s3Key": "amplify-builds/donate-6f4e4a7950762b734a79-build.zip"
         },
-        "examFetchQuestion": {
-          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/examFetchQuestion-6f767067304936317233-build.zip"
-        },
         "generate": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/generate-75314b4132354f735467-build.zip"
+          "s3Key": "amplify-builds/generate-6a564f5a783573435978-build.zip"
+        },
+        "fetchExam": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/fetchExam-584c33716a4a7a384a6c-build.zip"
         }
       }
     }

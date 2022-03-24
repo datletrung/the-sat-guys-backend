@@ -12,18 +12,6 @@ export type AmplifyDependentResourcesAttributes = {
             "Region": "string",
             "LambdaExecutionRole": "string"
         },
-        "examFetchQuestion": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
-        "examFetchSection": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
         "donateFetchTopic": {
             "Name": "string",
             "Arn": "string",
@@ -31,6 +19,12 @@ export type AmplifyDependentResourcesAttributes = {
             "LambdaExecutionRole": "string"
         },
         "generate": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "fetchExam": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",

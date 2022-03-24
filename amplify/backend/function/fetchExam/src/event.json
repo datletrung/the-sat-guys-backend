@@ -1,0 +1,15 @@
+{
+    "resource": "/fetchExam",
+    "path": "/fetchExam",
+    "httpMethod": "POST",
+    "comment": {"action":"fetchExam",
+                "exam_id":"Ya8lyy7zehZi",
+                "section":"no_cal"
+              },
+    "body": {"action":"fetchExam",
+              "exam_id":"Ya8lyy7zehZi",
+              "section":""
+            },
+    "isBase64Encoded": "False"
+  }
+  

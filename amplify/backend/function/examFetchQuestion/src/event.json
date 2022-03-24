@@ -1,8 +1,0 @@
-{
-    "resource": "/examFetchQuestion",
-    "path": "/examFetchQuestion",
-    "httpMethod": "POST",
-    "comment": "action=startExam&exam_id=6Zrnybr9vo3h&section=no_cal",
-    "body": "action=viewExam&exam_id=6Zrnybr9vo3h",
-    "isBase64Encoded": "False"
-  }

@@ -68,7 +68,7 @@ def main(event):
                 sections = generate_config["sections"]
                 section_name_list = ['reading', 'writing', 'cal', 'no_cal']
 
-                for _ in range(100):
+                for c in range(100):
                     random.seed(int(1000 * time.time()) % 2**32)
                     question_list = []
                     diff_list = generate_config["diffDict"].copy()
@@ -81,9 +81,7 @@ def main(event):
                         
                         if section_name not in section_name_list:
                             return False, "Invalid request! (1020)"
-                        #----------------------------------------                    
-                        topic_list = topic_list.copy()
-                        type_list = type_list.copy()
+                        #----------------------------------------
                     
                         for _ in range(total_question):
                             tmp = {'section': section_name}
@@ -125,10 +123,13 @@ def main(event):
                     question_tuples = [tuple(d.items()) for d in question_list]
                     question_count = collections.Counter(question_tuples)
                     question_tuples = list(set(question_tuples))
-                    
+
+                    if not question_tuples:
+                        return False, "Invalid request! (1030)"
+
                     query = "SELECT `topic_id`, `count` FROM ("
                     query_list = []
-    
+                    
                     ## CHECK ENOUGH QUESTION
                     for question_tuple in question_tuples:
                         question = dict((key, value) for key, value in question_tuple)
@@ -170,15 +171,6 @@ def main(event):
                                     "WHERE `topic_id` = %s "\
                                         "AND `approved` = 1 "\
                                     "ORDER BY RAND() LIMIT %s)"
-                            '''
-                            query += "(SELECT `question`.`question_id`, `topic`.`section` "\
-                                    "FROM `question` "\
-                                    "INNER JOIN `topic` "\
-                                    "ON `question`.`topic_id` = `topic`.`topic_id` "\
-                                    "WHERE `topic`.`topic_id` = %s "\
-                                        "AND `approved` = 1 "\
-                                    "ORDER BY RAND() LIMIT %s)"
-                            '''
                             query += " UNION ALL "
                         
                             query_list += [topic_id, count]
