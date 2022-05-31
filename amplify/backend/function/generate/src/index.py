@@ -60,9 +60,7 @@ def main(event):
         status, conn = connect(db_host, db_usr, db_pwd, db_name)
         if status:
             with conn.cursor() as cursor:
-                final_response = {"exam_id": "",
-                                "sections": {}
-                                }
+                final_response = {"exam_id": ""}
 
                 user_id = generate_config["user_id"]
                 sections = generate_config["sections"]
@@ -189,10 +187,10 @@ def main(event):
                         
 
                         final_response["exam_id"] = exam_id
-                        
                         for i in response:
                             question_id = i["question_id"]
-
+                            
+                            '''
                             query = """\
                             SELECT `question`.`statement` as `question_statement`,\
                                 `question`.`image` as `question_image`,\
@@ -241,7 +239,7 @@ def main(event):
                                 final_response["sections"][section].append(tmp)
                             else:
                                 final_response["sections"][section] = [tmp]
-
+                            '''
                             query = "INSERT INTO `exam` (`exam_id`, `section`, `question_id`, `user_id`)\
                                     VALUES (%s, %s, %s, %s)\
                                     "
