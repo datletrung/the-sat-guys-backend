@@ -178,12 +178,14 @@ def main(event):
                         cursor.execute(query, query_list)
                         response = cursor.fetchall()
                         
+                        tmp = True
                         while True:
                             exam_id = generate_id()
                             query = "SELECT * FROM `exam` WHERE `exam_id`=%s"
-                            respone = cursor.execute(query, [exam_id])
-                            if not respone:         #---------if ID not duplicate
+                            tmp = cursor.execute(query, [exam_id])
+                            if not tmp:         #---------if ID not duplicate
                                 break
+                        del tmp
                         
 
                         final_response["exam_id"] = exam_id

@@ -27,11 +27,15 @@
         },
         "generate": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/generate-666173534d6b62667330-build.zip"
+          "s3Key": "amplify-builds/generate-6c454f57557335525a55-build.zip"
         },
         "fetchExam": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
           "s3Key": "amplify-builds/fetchExam-793567456e7757493632-build.zip"
+        },
+        "gradeExam": {
+          "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
+          "s3Key": "amplify-builds/gradeExam-2b473432634b714d4a2b-build.zip"
         }
       }
     }

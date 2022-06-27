@@ -1,6 +1,6 @@
 {
-    "resource": "/donate",
-    "path": "/donate",
+    "resource": "/generate",
+    "path": "/generate",
     "httpMethod": "POST",
     "body": {"action":"generate",
             "generateConfig":{

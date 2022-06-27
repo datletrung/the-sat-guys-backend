@@ -24,6 +24,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "gradeExam": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "api": {
@@ -66,6 +71,14 @@
         {
           "category": "function",
           "resourceName": "fetchExam",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "gradeExam",
           "attributes": [
             "Name",
             "Arn"

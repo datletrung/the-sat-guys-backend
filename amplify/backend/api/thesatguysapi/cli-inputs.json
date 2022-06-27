@@ -35,6 +35,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/gradeExam": {
+      "name": "/gradeExam",
+      "lambdaFunction": "gradeExam",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

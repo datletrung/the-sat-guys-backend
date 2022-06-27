@@ -1,0 +1,17 @@
+{
+    "resource": "/gradeExam",
+    "path": "/gradeExam",
+    "httpMethod": "POST",
+    "body": {"action":"gradeExam",
+            "exam_id":"hd43OjnGeB73",
+            "answer":{
+                "H4wFZVVWEnmO":"140",
+                "xKM0KvD0Tmvt":"answer1",
+                "YqNYWkFGZWIt":"answer2",
+                "9NOexWSl6td1":"answer3",
+                "aruoXqxpOTJS":"answer4",
+                "9wHtUsV1V3tp":"answer5"
+            }
+          },
+    "isBase64Encoded": "False"
+}
