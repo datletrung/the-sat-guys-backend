@@ -15,7 +15,7 @@
       "function": {
         "ping": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
-          "s3Key": "amplify-builds/ping-334d35704b564c70776a-build.zip"
+          "s3Key": "amplify-builds/ping-444939336a394f302f48-build.zip"
         },
         "donateFetchTopic": {
           "deploymentBucketName": "amplify-thesatguys-thesatguys-92348-deployment",
