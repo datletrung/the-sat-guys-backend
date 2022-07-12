@@ -59,7 +59,7 @@ class UpdateDB:
 
             topic_id = response[0]["topic_id"]
 
-            query = "UPDATE `topic` SET `count` = `count` + 1 WHERE `topic_id`=%s"
+            query = "UPDATE `topic` SET `pending_count` = `pending_count` + 1 WHERE `topic_id`=%s"
             cursor.execute(query, [topic_id])
             conn.commit()
         return True, topic_id
@@ -110,7 +110,7 @@ class UpdateDB:
 
     def restore_topic(conn, topic_id):
         with conn.cursor() as cursor:
-            query = "UPDATE `topic` SET `count` = `count` - 1 WHERE `topic_id`=%s"
+            query = "UPDATE `topic` SET `pending_count` = `pending_count` - 1 WHERE `topic_id`=%s"
             cursor.execute(query, [topic_id])
             conn.commit()
             return True

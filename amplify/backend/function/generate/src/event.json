@@ -6,29 +6,29 @@
             "generateConfig":{
               "user_id": "c908e4b7-42b6-43f6-8b17-c47c010b8dfa",
               "diffDict":{
-                "easy": 8,
-                "medium": 4,
-                "hard": 2
+                "easy": 10,
+                "medium": 7,
+                "hard": 4
               },
               "sections":[
                 {"section": "cal",
                  "style": "specific",
-                 "totalQuestion": 6,
+                 "totalQuestion": 13,
                  "topicDist": {
-                   "Percent": 2,
+                   "Percent": 5,
                    "Angles": 1,
                    "Constructing Models": 2,
-                   "Exponential vs Linear Growth": 1
+                   "Exponential vs Linear Growth": 5
                  }
                 },
                 {"section": "no_cal",
-                  "style": "specific",
+                  "style": "total",
                   "totalQuestion": 8,
                   "topicDist": {
-                    "Solving Equations": 1,
-                    "Inequalities": 2,
-                    "Exponents and Radicals": 3,
-                    "System of Equations": 2
+                    "Solving Equations": 9999,
+                    "Inequalities": 9999,
+                    "Exponents and Radicals": 9999,
+                    "System of Equations": 9999
                   }
                  }
               ]
